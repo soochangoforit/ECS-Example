@@ -25,7 +25,7 @@ FROM azul/zulu-openjdk:17 as runtime
 ARG JAR_FILE_PATH=app/build/libs/*.jar
 
 # Copy the jar file from the build stage
-COPY --from=build ${JAR_FILE_PATH} app.jar
+COPY --from=build ${JAR_FILE_PATH} /app/
 
 # Run the application
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/app/ecs-0.0.1-SNAPSHOT.jar"]
