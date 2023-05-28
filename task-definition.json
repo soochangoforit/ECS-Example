@@ -1,13 +1,13 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/sample-task-soochan-ecs-group-family:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-soochan-family:1",
   "containerDefinitions": [
     {
-      "name": "sample-ecs-container",
-      "image": "555680551527.dkr.ecr.ap-northeast-2.amazonaws.com:latest/example-application-soochan:latest",
+      "name": "ecs-task-container",
+      "image": "555680551527.dkr.ecr.ap-northeast-2.amazonaws.com/example-application-soochan",
       "cpu": 0,
       "portMappings": [
         {
-          "name": "sample-ecs-container-8080-tcp",
+          "name": "ecs-task-container-8080-tcp",
           "containerPort": 8080,
           "hostPort": 8080,
           "protocol": "tcp",
@@ -22,16 +22,22 @@
       "ulimits": []
     }
   ],
-  "family": "sample-task-soochan-ecs-group-family",
-  "taskRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
-  "executionRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
+  "family": "ecs-task-definition-soochan-family",
+  "taskRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "revision": 1,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
     {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
       "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -53,7 +59,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-05-28T15:42:46.306Z",
+  "registeredAt": "2023-05-28T16:53:34.955Z",
   "registeredBy": "arn:aws:iam::555680551527:root",
   "tags": []
 }
