@@ -58,6 +58,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ecs-example-service-soochan
+          service: ecs-service-sample-soochan
           cluster: ecs-cluster-example-soochan
           wait-for-service-stability: true

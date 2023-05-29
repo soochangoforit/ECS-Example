@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family-soochan:1",
   "containerDefinitions": [
     {
       "name": "ecs-container-soochan",
@@ -19,37 +19,19 @@
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
-      "ulimits": [],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-create-group": "true",
-          "awslogs-group": "/ecs/ecs-task-definition-family",
-          "awslogs-region": "ap-northeast-2",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      "ulimits": []
     }
   ],
-  "family": "ecs-task-definition-family",
-  "taskRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
-  "executionRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
+  "family": "ecs-task-definition-family-soochan",
+  "taskRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
+  "executionRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
   "networkMode": "awsvpc",
   "revision": 1,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
     {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
       "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "name": "com.amazonaws.ecs.capability.task-iam-role"
@@ -62,9 +44,6 @@
     },
     {
       "name": "ecs.capability.task-eni"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
     }
   ],
   "placementConstraints": [],
@@ -80,7 +59,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-05-29T00:50:05.854Z",
+  "registeredAt": "2023-05-29T01:09:34.646Z",
   "registeredBy": "arn:aws:iam::555680551527:root",
   "tags": []
 }
