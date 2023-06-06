@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family-leesoochan:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family-lee:1",
   "containerDefinitions": [
     {
       "name": "ecr-example-soochan",
@@ -19,10 +19,19 @@
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
-      "ulimits": []
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "/ecs/ecs-task-definition-family-lee",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
     }
   ],
-  "family": "ecs-task-definition-family-leesoochan",
+  "family": "ecs-task-definition-family-lee",
   "taskRoleArn": "arn:aws:iam::555680551527:role/ecs-jejune-iam",
   "executionRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
@@ -31,7 +40,16 @@
   "status": "ACTIVE",
   "requiresAttributes": [
     {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "name": "com.amazonaws.ecs.capability.task-iam-role"
@@ -44,23 +62,25 @@
     },
     {
       "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
     }
   ],
   "placementConstraints": [],
   "compatibilities": [
-    "EC2",
-    "FARGATE"
+    "EC2"
   ],
   "requiresCompatibilities": [
     "EC2"
   ],
-  "cpu": "1024",
-  "memory": "3072",
+  "cpu": "512",
+  "memory": "512",
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-06-06T08:28:11.712Z",
+  "registeredAt": "2023-06-06T09:29:00.010Z",
   "registeredBy": "arn:aws:iam::555680551527:root",
   "tags": []
 }
