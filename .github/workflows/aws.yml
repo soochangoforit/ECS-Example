@@ -58,6 +58,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ecs-service-leesoo # Amazon ECS service name
+          service: ecs-service-soochan # Amazon ECS service name
           cluster: ecs-cluster-leesoochan # Amazon ECS cluster name
           wait-for-service-stability: true
