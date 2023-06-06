@@ -1,13 +1,13 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family-soochan:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:555680551527:task-definition/ecs-task-definition-family-leesoochan:1",
   "containerDefinitions": [
     {
-      "name": "ecs-container-soochan",
-      "image": "555680551527.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-example-soochan",
+      "name": "ecr-example-soochan",
+      "image": "555680551527.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-example-soochan:latest",
       "cpu": 0,
       "portMappings": [
         {
-          "name": "ecs-container-soochan-8080-tcp",
+          "name": "ecr-example-soochan-8080-tcp",
           "containerPort": 8080,
           "hostPort": 8080,
           "protocol": "tcp",
@@ -22,9 +22,9 @@
       "ulimits": []
     }
   ],
-  "family": "ecs-task-definition-family-soochan",
-  "taskRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
-  "executionRoleArn": "arn:aws:iam::555680551527:role/EcsFullAccessRole_soochan",
+  "family": "ecs-task-definition-family-leesoochan",
+  "taskRoleArn": "arn:aws:iam::555680551527:role/ecs-jejune-iam",
+  "executionRoleArn": "arn:aws:iam::555680551527:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "revision": 1,
   "volumes": [],
@@ -48,18 +48,19 @@
   ],
   "placementConstraints": [],
   "compatibilities": [
-    "EC2"
+    "EC2",
+    "FARGATE"
   ],
   "requiresCompatibilities": [
     "EC2"
   ],
   "cpu": "1024",
-  "memory": "1024",
+  "memory": "3072",
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-05-29T01:09:34.646Z",
+  "registeredAt": "2023-06-06T08:28:11.712Z",
   "registeredBy": "arn:aws:iam::555680551527:root",
   "tags": []
 }

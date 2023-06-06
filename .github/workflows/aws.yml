@@ -39,7 +39,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ecr-example-soochan
+          ECR_REPOSITORY: ecr-example-soochan # Amazon ECR repository name
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -51,13 +51,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: ecs-container-soochan
+          container-name: ecr-example-soochan # Amazon ECS container name, ECR과 이름이 같게한다.
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ecs-service-sample-soochan
-          cluster: ecs-cluster-example-soochan
+          service: ecs-service-sss # Amazon ECS service name
+          cluster: ecs-cluster-leesoochan # Amazon ECS cluster name
           wait-for-service-stability: true
